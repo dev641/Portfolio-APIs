@@ -9,7 +9,7 @@ enum Theme {
   DARK
 }
 
-enum SECTION {
+enum Section {
   HEADER
   HOME
   PROFILE
@@ -22,9 +22,29 @@ enum SECTION {
   CONTACT
 }
 
-enum TYPES {
+enum Type {
   DOWNLOAD
   BRAND
   MENU
   IMAGE
+}
+
+enum SocialPlatForm {
+  TWITTER
+  LINKEDIN
+  LEETCODE
+  GITHUB
+}
+
+enum SkillSet {
+  REACT
+  JAVA
+  JAVASCRIPT
+  PYTHON
+  NODE
+}
+
+enum TimelineType {
+  EDUCATION
+  EXPERIENCE
 }

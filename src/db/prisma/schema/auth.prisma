@@ -3,7 +3,7 @@
 model Auth {
   id           String    @id @default(uuid())
   provider     String // Example: "local", "google", "facebook"
-  userId       String  @unique// Unique identifier from the provider
+  userId       String    @unique // Unique identifier from the provider
   accessToken  String? // Optional access token for OAuth flows
   refreshToken String? // Optional refresh token for OAuth flows
   expiresAt    DateTime? // Optional expiry timestamp

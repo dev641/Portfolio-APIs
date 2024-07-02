@@ -1,6 +1,25 @@
-
 model UserProfile {
-    id String @id @default(cuid())
-    firstName String
-    lastName String
+  id            String          @id @default(cuid())
+  firstName     String
+  lastName      String
+  phoneNumber   String
+  userId        String          @unique
+  user          User            @relation(fields: [userId], references: [userId])
+  location      String?
+  socialProfile SocialProfile[]
+  education     Education[]
+  experience    Experience[]
+  Portfolio     Portfolio[]
+
+  @@map("user_profile")
+}
+
+model SocialProfile {
+  id          Int            @id @default(autoincrement())
+  userId      String
+  userProfile UserProfile    @relation(fields: [userId], references: [userId])
+  platform    SocialPlatForm
+
+  @@unique([userId, platform])
+  @@map("social_profile")
 }

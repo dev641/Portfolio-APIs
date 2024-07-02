@@ -8,3 +8,47 @@
 
 //     @@map("resources")
 // }
+
+model LogoClass {
+  id     Int    @id @default(autoincrement())
+  Logo   String
+  logo   Logo?  @relation(fields: [logoId], references: [id])
+  logoId Int?
+
+  @@map("logo")
+}
+
+model Logo {
+  id          Int         @id @default(autoincrement())
+  name        String
+  class       LogoClass[] @relation
+  home        Home?       @relation(fields: [homeId], references: [id])
+  homeId      Int?        @unique
+  Portfolio   Portfolio?  @relation(fields: [portfolioId], references: [id])
+  portfolioId Int?
+}
+
+model timeLine {
+  id           Int          @id @default(autoincrement())
+  start        DateTime
+  end          DateTime?
+  isOngoing    Boolean      @default(false)
+  timelineType TimelineType
+
+  education  Education?  @relation(fields: [id], references: [id], onDelete: Cascade, map: "timeline_education_fkey")
+  experience Experience? @relation(fields: [id], references: [id], onDelete: Cascade, map: "timeline_experience_fkey")
+
+  @@unique([id, timelineType], name: "unique_timeline_usage")
+}
+
+model Link {
+  id              Int        @id @default(autoincrement())
+  name            String
+  src             String
+  header          Header?
+  portfolioLinkId Int?       @unique
+  Portfolio       Portfolio?
+  section         Section
+
+  @@map("link")
+}

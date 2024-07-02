@@ -1,1 +1,11 @@
-
+model Experience {
+  id          Int         @id @default(autoincrement())
+  userId      String
+  userProfile UserProfile @relation(fields: [userId], references: [userId])
+  name        String
+  description String
+  location    String
+  designation String
+  skillSet    SkillSet[]
+  timeLine    timeLine[]
+}

@@ -1,1 +1,13 @@
-
+model Education {
+  id          Int         @id @default(autoincrement())
+  userId      String
+  userProfile UserProfile @relation(fields: [userId], references: [userId])
+  name        String
+  description String
+  degree      String
+  stream      String
+  location    String
+  cgpa        Decimal
+  courses     String[]
+  timeLine    timeLine[]
+}
