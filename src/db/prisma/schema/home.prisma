@@ -1,0 +1,34 @@
+model LogoClass {
+  id     Int    @id @default(autoincrement())
+  Logo   String
+  logo   Logo?  @relation(fields: [logoId], references: [id])
+  logoId Int?
+
+  @@map("logo")
+}
+
+model Logo {
+  id            Int         @id @default(autoincrement())
+  name          String
+  logoId        Int         @unique
+  designationId Int         @unique
+  class         LogoClass[] @relation
+  home          Home?
+  Info          Info?
+}
+
+model Info {
+  id            Int  @id @default(autoincrement())
+  designationId Int  @unique
+  designation   Logo @relation(fields: [designationId], references: [designationId])
+  //   emailId Int  @unique
+  //   email   Logo @relation(fields: [designationId], references: [designationId])
+}
+
+model Home {
+  id          Int    @id @default(autoincrement())
+  logoId      Int    @unique
+  logo        Logo   @relation(fields: [logoId], references: [logoId])
+  name        String
+  description String
+}

@@ -6,19 +6,26 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "prisma:migrate": "prisma migrate dev --schema=src/db/prisma/schema",
+    "prisma:generate": "prisma generate --schema=src/db/prisma/schema",
+    "prisma:format": "npx prisma format --schema=src/db/prisma/schema",
+    "prisma:reset": "npx prisma migrate reset --schema=src/db/prisma/schema"
   },
   "author": "Devashish",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.15.1",
-    "express": "^4.19.2"
+    "@prisma/client": "^5.16.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.8",
+    "@types/pg": "^8.11.6",
     "nodemon": "^3.1.4",
-    "prisma": "^5.15.1",
+    "prisma": "^5.16.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
   }

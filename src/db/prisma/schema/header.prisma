@@ -1,0 +1,28 @@
+model Brand {
+  id     Int     @id @default(autoincrement())
+  name   String
+  src    String
+  header Header?
+
+  @@map("brand")
+}
+
+model Menu {
+  id     Int     @id @default(autoincrement())
+  name   String
+  src    String
+  header Header?
+
+  @@map("menu")
+}
+
+model Header {
+  id      Int    @id @default(autoincrement())
+  brand   Brand? @relation(fields: [brandId], references: [id])
+  brandId Int?   @unique
+  menu    Menu?  @relation(fields: [menuId], references: [id])
+  menuId  Int?   @unique
+  theme   Theme  @default(DARK)
+
+  @@map("header")
+}
