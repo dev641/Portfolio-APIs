@@ -19,12 +19,11 @@ model LogoClass {
 }
 
 model Logo {
-  id          Int         @id @default(autoincrement())
-  name        String
-  class       LogoClass[] @relation
-  home        Home?       @relation(fields: [homeId], references: [id])
-  homeId      Int?        @unique
-  Portfolio   Portfolio?  @relation(fields: [portfolioId], references: [id])
+  id    Int         @id @default(autoincrement())
+  name  String
+  class LogoClass[] @relation
+
+  Portfolio   Portfolio? @relation(fields: [portfolioId], references: [id])
   portfolioId Int?
 }
 
@@ -45,10 +44,8 @@ model Link {
   id              Int        @id @default(autoincrement())
   name            String
   src             String
-  header          Header?
-  portfolioLinkId Int?       @unique
-  Portfolio       Portfolio?
-  section         Section
+  linkId          Int? 
+  Portfolio       Portfolio?   @relation(fields: [linkId], references: [id])    
 
   @@map("link")
 }

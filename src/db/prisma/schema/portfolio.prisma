@@ -7,6 +7,5 @@ model Portfolio {
   likes       Int?
   feature     String
   description String
-  link        Link?       @relation(fields: [linkId], references: [portfolioLinkId])
-  linkId      Int?        @unique
+  link        Link[]
 }

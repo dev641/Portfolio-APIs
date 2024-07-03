@@ -1,19 +1,19 @@
-model Brand {
-  id     Int     @id @default(autoincrement())
-  name   String
-  src    String
-  header Header?
+// model Brand {
+//   id     Int     @id @default(autoincrement())
+//   name   String
+//   src    String
+//   header Header?
 
-  @@map("brand")
-}
+//   @@map("brand")
+// }
 
-model Header {
-  id      Int    @id @default(autoincrement())
-  brand   Brand? @relation(fields: [brandId], references: [id])
-  brandId Int?   @unique
-  menu    Link?  @relation(fields: [menuId], references: [id])
-  menuId  Int?   @unique
-  theme   Theme  @default(DARK)
+// model Header {
+//   id      Int    @id @default(autoincrement())
+//   brand   Brand? @relation(fields: [brandId], references: [id])
+//   brandId Int?   @unique
+//   menu    Link?  @relation(fields: [menuId], references: [id])
+//   menuId  Int?   @unique
+//   theme   Theme  @default(DARK)
 
-  @@map("header")
-}
+//   @@map("header")
+// }
