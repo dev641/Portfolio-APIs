@@ -41,11 +41,11 @@ model timeLine {
 }
 
 model Link {
-  id              Int        @id @default(autoincrement())
-  name            String
-  src             String
-  linkId          Int? 
-  Portfolio       Portfolio?   @relation(fields: [linkId], references: [id])    
+  id        Int        @id @default(autoincrement())
+  name      String
+  src       String
+  linkId    Int?
+  Portfolio Portfolio? @relation(fields: [linkId], references: [id])
 
   @@map("link")
 }
