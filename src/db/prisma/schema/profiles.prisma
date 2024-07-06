@@ -10,8 +10,8 @@ model UserProfile {
   education     Education[]
   experience    Experience[]
   Portfolio     Portfolio[]
+  Images        Images[]
 
-  @@map("user_profile")
 }
 
 model SocialProfile {
@@ -21,5 +21,4 @@ model SocialProfile {
   platform    SocialPlatForm
 
   @@unique([userId, platform])
-  @@map("social_profile")
 }

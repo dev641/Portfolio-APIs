@@ -10,6 +10,5 @@ model Auth {
   createdAt    DateTime?
   // Define relationships
   user         User?
-
-  @@map("auth") // Remove the @unique attribute from userId here @unique
+ // Remove the @unique attribute from userId here @unique
 }

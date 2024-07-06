@@ -3,9 +3,9 @@ model Portfolio {
   userId      String
   userProfile UserProfile @relation(fields: [userId], references: [userId])
   heading     String
-  skillSet    Logo[]
-  likes       Int?
+  skillSet    String[]
+  likes       Int         @default(0)
   feature     String
   description String
-  link        Link[]
+  link        String[]
 }

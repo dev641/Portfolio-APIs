@@ -15,16 +15,16 @@ model LogoClass {
   logo   Logo?  @relation(fields: [logoId], references: [id])
   logoId Int?
 
-  @@map("logo")
+  @@map("logo-class")
 }
 
 model Logo {
   id    Int         @id @default(autoincrement())
   name  String
   class LogoClass[] @relation
+  type  Section?
 
-  Portfolio   Portfolio? @relation(fields: [portfolioId], references: [id])
-  portfolioId Int?
+  @@map("logo")
 }
 
 model timeLine {
@@ -41,11 +41,19 @@ model timeLine {
 }
 
 model Link {
-  id        Int        @id @default(autoincrement())
-  name      String
-  src       String
-  linkId    Int?
-  Portfolio Portfolio? @relation(fields: [linkId], references: [id])
+  id   Int    @id @default(autoincrement())
+  name String
+  src  String
 
   @@map("link")
+}
+
+model Images {
+  id          String       @id @default(cuid())
+  userId      String?      @unique
+  userProfile UserProfile? @relation(fields: [userId], references: [userId])
+  alt         String?
+  src         String
+  type        Section
+
 }

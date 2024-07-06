@@ -2,16 +2,14 @@
 
 model User {
   id          Int          @id @default(autoincrement())
+  userId      String       @unique
   email       String       @unique
   password    String? // Store hashed password
   role        Role         @default(USER)
   createdAt   DateTime     @default(now())
   modifiedAt  DateTime     @updatedAt
   // Define relationships
-  userId      String       @unique
   auth        Auth?        @relation(fields: [authId], references: [userId])
   authId      String       @unique
   userProfile UserProfile?
-
-  @@map("users")
 }
