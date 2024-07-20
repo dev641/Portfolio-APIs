@@ -1,4 +1,4 @@
-import app from '../public/server'
+import app from '../src/server'
 
 export default app
 // const express = require('express')
