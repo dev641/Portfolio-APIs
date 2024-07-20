@@ -3,4 +3,3 @@ node_modules
 .env
 
 src/db/prisma/migrations*
-public
