@@ -14,3 +14,5 @@ app.get('/', (_: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
 })
+
+export default app
