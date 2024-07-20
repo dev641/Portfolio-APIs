@@ -1,6 +1,6 @@
-// import app from '../src/server'
+import app from '../src/server'
 
-// export default app
+export default app
 // const express = require('express')
 // const app = express()
 
