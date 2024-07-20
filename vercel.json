@@ -1,19 +1,20 @@
 {
   "version": 2,
-  "builds": [
+  "headers": [
     {
-      "src": "public/server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
+      "source": "/(.*).js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/public/server.js"
+      "source": "/(.*)",
+      "destination": "/server.js"
     }
   ]
 }
