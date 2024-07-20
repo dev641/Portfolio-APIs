@@ -7,8 +7,8 @@
     }
   ],
   "functions": {
-    "api/index": {
-      "includeFiles": "public/**"
+    "api/index.ts": {
+      "includeFiles": "public/server/**"
     }
   }
 }
