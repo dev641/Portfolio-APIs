@@ -1,27 +1,16 @@
-import { PrismaClient } from "@prisma/client";
+import express, { Express, Request, Response } from 'express'
+import dotenv from 'dotenv'
 
-const prisma = new PrismaClient();
+dotenv.config()
 
-async function main() {
-  // Create a new user
-  // const newUser = await prisma.user.create({
-  //   data: {
-  //     email: "test@example.com",
-  //     name: "Test User",
-  //   },
-  // });
-  // console.log("Created User:", newUser);
+const app: Express = express()
+const port = process.env.PORT || 3000
 
-  // Fetch all users
-  const allUsers = await prisma.user.findMany();
-  console.log("All Users:", allUsers);
-}
+app.get('/', (_: Request, res: Response) => {
+  console.log('hello')
+  res.send('Express + TypeScript Server')
+})
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+app.listen(port, () => {
+  console.log(`[server]: Server is running at http://localhost:${port}`)
+})

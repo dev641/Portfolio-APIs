@@ -15,7 +15,6 @@ model LogoClass {
   logo   Logo?  @relation(fields: [logoId], references: [id])
   logoId Int?
 
-  @@map("logo-class")
 }
 
 model Logo {
@@ -23,8 +22,6 @@ model Logo {
   name  String
   class LogoClass[] @relation
   type  Section?
-
-  @@map("logo")
 }
 
 model timeLine {
