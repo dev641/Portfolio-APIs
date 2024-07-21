@@ -2,17 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "/src/server.ts",
+      "src": "src/server.ts",
       "use": "@vercel/node",
       "config": {
-        "distDir": "public"
+        "includeFiles": "public/**"
       }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/server.js"
+      "src": "/static/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
     }
-  ]
+  ],
+  "public": "public"
 }
