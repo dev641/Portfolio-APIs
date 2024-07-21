@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "Portfolio-APIs for Portfolio",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc",
-    "vercel-build": "echo build started",
     "start": "node public/server.js",
     "dev": "nodemon",
     "lint": "eslint .",

@@ -1,6 +1,7 @@
 {
   "watch": ["src"],
-  "ext": "ts,tsx,js,jsx,json",
+  "ext": "ts",
   "ignore": ["src/**/*.spec.ts"],
-  "exec": "node starter.js"
+  "exec": "ts-node ./src/server.ts",
+  "legacyWatch": true
 }
