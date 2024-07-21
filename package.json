@@ -4,9 +4,8 @@
   "description": "Portfolio-APIs for Portfolio",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
     "start": "node public/server.js",
-    "dev": "nodemon",
+    "dev": "nodemon server.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.ts\"",
