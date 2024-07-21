@@ -1,23 +1,9 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "src/server.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["public/**"],
-        "buildCommand": "npm run build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/server.js"
+      "source": "/(.*)",
+      "destination": "/server.js"
     }
   ]
 }
