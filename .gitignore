@@ -3,5 +3,4 @@
 .env
 node_modules
 src/db/prisma/migrations*
-public
 .vercel
