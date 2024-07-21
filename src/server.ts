@@ -1,10 +1,11 @@
-import express, { Request, Response, NextFunction } from 'express'
+import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import compression from 'compression'
-
+import adminRouter from './routes/admin/adminRouter'
+import apiRouter from './routes/apis/apiRouter'
 dotenv.config()
 
 const app = express()
@@ -23,26 +24,12 @@ app.use(morgan('combined'))
 // Compress response bodies
 app.use(compression())
 
-// Dummy data for posts
-const posts = [
-  { id: 1, title: 'First Post', content: 'This is the first post' },
-  { id: 2, title: 'Second Post', content: 'This is the second post' }
-]
+const PORT = process.env.PORT || 3000
 
-// Get post routes
-app.get('/post', (_: Request, res: Response) => {
-  res.status(200).json(posts)
+app.use('/admin', adminRouter)
+app.use('/api', apiRouter)
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
 })
-
-// Root route
-app.get('/', (_: Request, res: Response) => {
-  res.status(200).json({ message: 'Hello World' })
-})
-
-// Error handling middleware
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack)
-  res.status(500).json({ message: err.message })
-})
-
 export default app
