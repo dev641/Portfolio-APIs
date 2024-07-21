@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "vercel-build": "echo build started",
     "start": "node public/server.js",
     "dev": "nodemon",
     "lint": "eslint .",
