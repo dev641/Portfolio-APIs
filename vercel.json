@@ -1,20 +1,10 @@
 {
   "version": 2,
-  "headers": [
+
+  "routes": [
     {
-      "source": "/(.*).js",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/server.js"
+      "src": "/(.*)",
+      "dest": "/api"
     }
   ]
 }
