@@ -4,8 +4,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import compression from 'compression'
-import adminRouter from './routes/admin/adminRouter'
-import apiRouter from './routes/apis/apiRouter'
+import router from './routes/router'
 dotenv.config()
 
 const app = express()
@@ -26,8 +25,7 @@ app.use(compression())
 
 const PORT = process.env.PORT || 3000
 
-app.use('/admin', adminRouter)
-app.use('/api', apiRouter)
+app.use('/', router)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)

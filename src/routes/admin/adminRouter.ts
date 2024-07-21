@@ -1,7 +1,7 @@
-import { Router, Request, Response, NextFunction } from 'express'
+import { Router, Request, Response, NextFunction, json } from 'express'
 
 const adminRouter = Router()
-
+adminRouter.use(json())
 // Dummy data for posts
 const posts = [
   { id: 1, title: 'First Post', content: 'This is the first post' },
