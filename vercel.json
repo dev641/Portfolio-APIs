@@ -5,7 +5,7 @@
       "src": "src/server.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": "public/**"
+        "includeFiles": ["public/**"]
       }
     }
   ],
@@ -18,6 +18,5 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
-  ],
-  "public": "public"
+  ]
 }
